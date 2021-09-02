@@ -1,4 +1,10 @@
 <script>
 </script>
 
-<p>급식</p>
+<h1>급식</h1>
+
+<style>
+  h1 {
+    margin: 10px;
+  }
+</style>
