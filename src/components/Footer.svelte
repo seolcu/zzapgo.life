@@ -1,17 +1,46 @@
 <script>
-  import { link } from "svelte-spa-router";
+  import FooterIconLink from "./FooterIconLink.svelte";
+  let selected = "home";
+  const linkInfo = [
+    {
+      name: "home",
+      url: "/",
+      icon: "home",
+    },
+    {
+      name: "diet",
+      url: "/diet",
+      icon: "calendar",
+    },
+    {
+      name: "shortcut",
+      url: "/shortcut",
+      icon: "bookmark",
+    },
+    {
+      name: "timetable",
+      url: "/timetable",
+      icon: "timetable",
+    },
+    {
+      name: "about",
+      url: "/about",
+      icon: "menu",
+    },
+  ];
 </script>
 
 <footer>
-  <a href="/" use:link><img src="./images/home.svg" alt="홈" /></a>
-  <a href="/diet" use:link><img src="./images/calendar.svg" alt="급식" /></a>
-  <a href="/shortcut" use:link
-    ><img src="./images/bookmark.svg" alt="바로가기" /></a
-  >
-  <a href="/timetable" use:link
-    ><img src="./images/timetable.svg" alt="시간표" /></a
-  >
-  <a href="/about" use:link><img src="./images/menu.svg" alt="기타" /></a>
+  {#each linkInfo as oneLink}
+    <div on:click={() => (selected = oneLink.name)}>
+      <FooterIconLink
+        name={oneLink.name}
+        url={oneLink.url}
+        iconName={oneLink.icon}
+        {selected}
+      />
+    </div>
+  {/each}
 </footer>
 
 <style>
@@ -24,7 +53,7 @@
     display: flex;
     justify-content: space-evenly;
     padding: 5px 0px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
   }
 </style>
