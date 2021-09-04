@@ -1,5 +1,6 @@
 <script>
   import axios from "axios";
+  import Footer from "../components/Footer.svelte";
 
   const year = new Date().getFullYear();
   const month = ("0" + (new Date().getMonth() + 1)).slice(-2);
@@ -24,6 +25,8 @@
   <h2>저녁 급식</h2>
   {@html mealData[2].DDISH_NM}
 {/await}
+
+<Footer currentURL="/diet" />
 
 <style>
   h1 {

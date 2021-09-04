@@ -1,7 +1,9 @@
 <script>
+  import Footer from "../components/Footer.svelte";
 </script>
 
 <h1>홈</h1>
+<Footer currentURL="/" />
 
 <style>
   h1 {
