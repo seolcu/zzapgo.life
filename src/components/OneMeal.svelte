@@ -17,7 +17,7 @@
   };
 </script>
 
-<div>
+<div class="mealWrapper">
   <h2>
     {mealType == 0
       ? "아침"
@@ -37,3 +37,20 @@
     </ul>
   {/await}
 </div>
+
+<style>
+  .mealWrapper {
+    margin: 10px;
+    padding: 10px;
+    background: #333333;
+    color: #eeeeee;
+    border-radius: 20px;
+  }
+  h2 {
+    margin: 10px;
+  }
+  ul li {
+    padding: 2px;
+    font-size: 17px;
+  }
+</style>

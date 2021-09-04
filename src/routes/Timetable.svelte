@@ -1,12 +1,10 @@
 <script>
   import Footer from "../components/Footer.svelte";
+  import Header from "../components/Header.svelte";
 </script>
 
-<h1>시간표</h1>
+<Header content="시간표" />
 <Footer currentURL="/timetable" />
 
 <style>
-  h1 {
-    margin: 10px;
-  }
 </style>

@@ -1,5 +1,6 @@
 <script>
   import Footer from "../components/Footer.svelte";
+  import Header from "../components/Header.svelte";
   import OneMeal from "../components/OneMeal.svelte";
 
   const year = new Date().getFullYear();
@@ -7,7 +8,7 @@
   const date = ("0" + new Date().getDate()).slice(-2);
 </script>
 
-<h1>{month}월 {date}일</h1>
+<Header content="{month}월 {date}일" />
 
 {#each [0, 1, 2] as mealType}
   <OneMeal {mealType} {year} {month} {date} />
@@ -16,7 +17,4 @@
 <Footer currentURL="/diet" />
 
 <style>
-  h1 {
-    margin: 10px;
-  }
 </style>
