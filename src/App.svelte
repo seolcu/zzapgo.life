@@ -1,6 +1,5 @@
 <script>
   import Router from "svelte-spa-router";
-  import Footer from "./components/Footer.svelte";
   import Home from "./routes/Home.svelte";
   import About from "./routes/About.svelte";
   import Diet from "./routes/Diet.svelte";
@@ -18,4 +17,4 @@
 
 <Router {routes} />
 
-<br /><br /><br /><br /><br />
+<br /><br />
