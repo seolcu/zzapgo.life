@@ -5,6 +5,7 @@
 
 <style>
   h1 {
-    margin: 10px;
+    margin: 5px;
+    font-size: 40px;
   }
 </style>
