@@ -4,6 +4,7 @@
 </script>
 
 <Header content="시간표" />
+
 <div class="timetableContainer" style="display: none;" />
 <Footer currentURL="/timetable" />
 
