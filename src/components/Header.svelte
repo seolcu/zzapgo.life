@@ -6,6 +6,6 @@
 
 <style>
   h1 {
-    margin: 20px;
+    margin: 30px;
   }
 </style>
