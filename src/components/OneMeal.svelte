@@ -28,7 +28,15 @@
       : "???"} 급식
   </h2>
   {#await mealData}
-    로딩중...
+    <ul>
+      <li />
+      <li />
+      <li />
+      <li />
+      <li />
+      <li />
+      <li />
+    </ul>
   {:then mealData}
     <ul>
       {#each parseDataStringIntoList(mealData[mealType].DDISH_NM) as oneMenu}
