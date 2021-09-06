@@ -5,6 +5,7 @@
   export let currentURL;
 </script>
 
+<br /><br /><br />
 <footer>
   {#each pageInfo as oneLink}
     <a href={oneLink.url} use:link on:click={() => (currentURL = oneLink.url)}>
