@@ -1,21 +1,11 @@
 <script>
-  const dormInfo = {
-    // 오후 사감이 기준 !!!!
-    "2021/9": {
-      odd: {
-        male: "이만수",
-        female: "이순덕",
-      },
-      even: {
-        male: "정진기",
-        female: "장정숙",
-      },
-    },
-  };
-  const year = new Date().getFullYear();
-  const month = new Date().getMonth() + 1; //getMonth는 0부터 11
-  const date = new Date().getDate();
-  const hours = new Date().getHours();
+  import dormInfo from "../dormInfo";
+
+  export let year;
+  export let month; // 두자리 string
+  export let date; // string, number 둘 다 가능
+  export let hours;
+
   const yearPlusMonth = year + "/" + month;
   const getCurrentDormManager = (gender) => {
     if (date % 2 == 1) {
