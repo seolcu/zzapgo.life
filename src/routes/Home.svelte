@@ -22,8 +22,6 @@
 />
 <!-- mealType: 0 조식 1 중식 2 석식 -->
 <DormManager {year} {month} {date} {hours} />
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
-/><br /><br /><br /><br /><br /><br /><br />
 
 <Footer currentURL="/" />
 

@@ -25,7 +25,7 @@
     right: 0;
     display: flex;
     justify-content: space-evenly;
-    padding: 15px 0px;
+    padding: 5px 0px 10px 0px;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
   }
