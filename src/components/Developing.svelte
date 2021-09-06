@@ -2,10 +2,10 @@
   export let content;
 </script>
 
-<h2>{content}: 현재 개발중!</h2>
+<h3>{content}: 현재 개발중!</h3>
 
 <style>
-  h2 {
+  h3 {
     margin: 10px;
     padding: 10px;
     color: #eeeeee;
