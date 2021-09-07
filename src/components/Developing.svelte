@@ -2,10 +2,10 @@
   export let content;
 </script>
 
-<h3>{content}: 현재 개발중!</h3>
+<h4>{content}: 10월 말 출시 예정!</h4>
 
 <style>
-  h3 {
+  h4 {
     margin: 10px;
     padding: 10px;
     color: #eeeeee;
