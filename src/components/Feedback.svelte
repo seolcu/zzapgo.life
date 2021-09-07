@@ -1,6 +1,6 @@
 <div class="feedbackWrapper">
   <h2>피드백</h2>
-  <h3>DM: @gyuwon112<br />Email: gyuwon112@gmail.com</h3>
+  <h3>Email: gyuwon112@gmail.com</h3>
 </div>
 
 <style>
