@@ -2,7 +2,7 @@
   import Footer from "../components/Footer.svelte";
   import Header from "../components/Header.svelte";
   import ShortcutLink from "../components/ShortcutLink.svelte";
-  import shortcutList from "../data/shortcutList";
+  import shortcutList from "../shortcutList";
 </script>
 
 <Header content="바로가기" />

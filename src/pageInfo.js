@@ -1,8 +1,8 @@
-import BookmarkIcon from "../icons/BookmarkIcon.svelte";
-import CalendarIcon from "../icons/CalendarIcon.svelte";
-import HomeIcon from "../icons/HomeIcon.svelte";
-import MenuIcon from "../icons/MenuIcon.svelte";
-import TimetableIcon from "../icons/TimetableIcon.svelte";
+import BookmarkIcon from "./icons/BookmarkIcon.svelte";
+import CalendarIcon from "./icons/CalendarIcon.svelte";
+import HomeIcon from "./icons/HomeIcon.svelte";
+import MenuIcon from "./icons/MenuIcon.svelte";
+import TimetableIcon from "./icons/TimetableIcon.svelte";
 
 const pageInfo = [
   {
