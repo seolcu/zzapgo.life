@@ -1,8 +1,5 @@
-<script>
-  // Import Swiper Svelte components
+<script lang="ts">
   import { Swiper, SwiperSlide } from "swiper/svelte";
-
-  // Import Swiper styles
   import "swiper/css";
 
   import OneMeal from "../components/OneMeal.svelte";
