@@ -1,12 +1,13 @@
 <script lang="ts">
   import themeList from "../data/themeList";
   import { selectedThemeName } from "../data/stores";
-  const selectedTheme = themeList[$selectedThemeName];
 
   export let content: string;
 </script>
 
-<h1 style="color: {selectedTheme.outerFontColor};">{content}</h1>
+<h1 style="color: {themeList[$selectedThemeName].outerFontColor};">
+  {content}
+</h1>
 
 <style>
   h1 {

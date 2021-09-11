@@ -4,14 +4,16 @@
 
   import themeList from "./data/themeList";
   import { selectedThemeName } from "./data/stores";
-  const selectedTheme = themeList[$selectedThemeName];
 
   const routes = {
     "/": Main,
   };
 </script>
 
-<div class="background" style="background: {selectedTheme.BGColor};">
+<div
+  class="background"
+  style="background: {themeList[$selectedThemeName].BGColor};"
+>
   <Router {routes} />
 </div>
 
