@@ -13,7 +13,6 @@ const precacheResources = [
   "/index.html",
   "/maskable_180.png",
   "/og.jpg",
-  "/build",
   "/build/bundle.css",
   "/build/bundle.js",
   "/build/bundle.js.map",
