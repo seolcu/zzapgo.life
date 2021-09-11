@@ -4,6 +4,7 @@
 
   // Import Swiper styles
   import "swiper/css";
+
   import OneMeal from "../components/OneMeal.svelte";
   import {
     currentYear,
@@ -15,7 +16,9 @@
 
 <Swiper
   initialSlide={currentMealType()}
-  slidesPerView={1}
+  slidesPerView={1.2}
+  spaceBetween={0}
+  centeredSlides={true}
   on:slideChange={() => console.log("slide change")}
   on:swiper={(e) => console.log(e.detail[0])}
 >
