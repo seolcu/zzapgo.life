@@ -13,7 +13,7 @@
 
 <Swiper
   initialSlide={currentMealType()}
-  slidesPerView={1.2}
+  slidesPerView={1.3}
   spaceBetween={0}
   centeredSlides={true}
   on:slideChange={() => console.log("slide change")}
