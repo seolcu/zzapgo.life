@@ -3,7 +3,7 @@
   import Main from "./routes/Main.svelte";
 
   import themeList from "./data/themeList";
-  import { selectedThemeName } from "./data/stores";
+  import { selectedThemeName } from "./data/selectedThemeName";
 
   const routes = {
     "/": Main,

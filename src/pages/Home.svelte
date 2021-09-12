@@ -1,7 +1,7 @@
 <script lang="ts">
   import Header from "../components/Header.svelte";
   import MealSwiper from "../components/MealSwiper.svelte";
-  import { selectedThemeName } from "../data/stores";
+  import { selectedThemeName } from "../data/selectedThemeName";
 
   const themeList = [
     { id: 1, themeName: "클래식" },
