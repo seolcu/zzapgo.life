@@ -1,9 +1,12 @@
-import "./App.css"
+import "./App.css";
+import Main from "./routes/Main";
 
-const App = () => (
-  <>
-    <h1>Hello World!</h1>
-  </>
-)
+const App = () => {
+  return (
+    <>
+      <Main />
+    </>
+  );
+};
 
 export default App;
