@@ -10,6 +10,7 @@ import {
   LinkOverlay,
   Center,
   HStack,
+  Link,
 } from "@chakra-ui/layout";
 import { Switch } from "@chakra-ui/switch";
 import { useState } from "react";
@@ -17,7 +18,15 @@ import "./App.css";
 import Calendar from "react-calendar";
 import "./Calendar.css";
 import MealCard from "./components/MealCard";
-import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
+import {
+  Alert,
+  AlertIcon,
+  Tab,
+  TabList,
+  TabPanel,
+  TabPanels,
+  Tabs,
+} from "@chakra-ui/react";
 import {
   CalendarIcon,
   ExternalLinkIcon,
@@ -38,6 +47,25 @@ function App() {
             {/* ------------------------------메인 페이지-------------------------- */}
             <Container>
               <Heading my="4">홈</Heading>
+
+              <Alert status="warning" rounded="md" my="4">
+                <AlertIcon />
+                <LinkBox>
+                  <LinkOverlay href="https://zzapgo-life.vercel.app" isExternal>
+                    <Heading size="md">도메인 이전 안내</Heading>
+                  </LinkOverlay>
+                  짭고라이프의 1주년, 9월 2일을 기념해...
+                  <br />
+                  기존 주소(zzapgo.life)가 만료돼요.
+                  <br />
+                  짭고라이프를 계속 이용하시려면{" "}
+                  <Text as="a" fontWeight="bold">
+                    새 주소(zzapgo-life.vercel.app)
+                  </Text>
+                  로 접속해 다시 설치하세요.
+                </LinkBox>
+              </Alert>
+
               <Box
                 bg={useColorModeValue("gray.50", "gray.700")}
                 rounded="md"
