@@ -1,9 +1,12 @@
 <script>
+  import Developing from "../components/Developing.svelte";
+
   import Footer from "../components/Footer.svelte";
   import Header from "../components/Header.svelte";
 </script>
 
-<Header content="기타" />
+<Header content="더보기" />
+<Developing content="테마" />
 <Footer currentURL="/about" />
 
 <style>
