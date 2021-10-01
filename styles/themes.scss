@@ -8,18 +8,9 @@
 }
 
 [data-theme="dark"] {
-  --bgColor: #111;
-  --fgColor: #333;
+  --bgColor: #222;
+  --fgColor: #2d2d2d;
   --outerTextColor: #fff;
-  --innerTextColor: #fff;
-  --footerIconDisabled: #fff;
-  --footerIconEnabled: #6b76ff;
-}
-
-[data-theme="classic"] {
-  --bgColor: #eee;
-  --fgColor: #333;
-  --outerTextColor: #000;
   --innerTextColor: #fff;
   --footerIconDisabled: #fff;
   --footerIconEnabled: #6b76ff;
