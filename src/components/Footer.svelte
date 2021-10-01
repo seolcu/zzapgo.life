@@ -22,8 +22,8 @@
     left: 0;
     right: 0;
     display: flex;
-    justify-content: space-between;
-    padding: 10px;
+    justify-content: space-evenly;
+    padding: 5px 0px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
   }
