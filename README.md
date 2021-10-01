@@ -2,10 +2,8 @@
 
 제고라이프 짭
 
-## 특징
+## 기술
 
-Vite React
-
-Chakra UI
-
-SWR
+- Vite React
+- Chakra UI
+- SWR
