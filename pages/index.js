@@ -41,6 +41,7 @@ export const getServerSideProps = async () => {
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import FooterComponent from "../components/FooterComponent";
+import HomeIcon from "../components/icons/HomeIcon";
 
 const ThemeChanger = () => {
   const [mounted, setMounted] = useState(false);

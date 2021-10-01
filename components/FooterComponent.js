@@ -5,7 +5,7 @@ import CalendarIcon from "./icons/CalendarIcon";
 import styles from "./FooterComponent.module.scss";
 
 const FooterComponent = ({ currentPage }) => {
-  const size = "30";
+  const size = "35";
   const opacity = 0.5;
   return (
     <footer className={styles.wrapper}>
