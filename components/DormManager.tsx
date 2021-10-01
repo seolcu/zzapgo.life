@@ -1,9 +1,5 @@
 import styles from "../styles/components/DormManager.module.scss";
 import CardLayout from "./CardLayout";
-import FemaleIcon from "./icons/FemaleIcon";
-import MaleIcon from "./icons/MaleIcon";
-import { useCookie } from "next-cookie";
-import React, { useState } from "react";
 
 const dormInfo: any = {
   // [오전사감, 오후사감]
@@ -29,46 +25,23 @@ const dormInfo: any = {
   },
 };
 
-const DormManager = (props: any) => {
-  const year = props.year;
-  const month = props.month;
-  const date = props.date;
+interface Props {
+  year: number;
+  month: number;
+  date: number;
+}
+
+const DormManager = ({ year, month, date }: Props) => {
   const yearPlusMonth = `${year}/${month}`;
   const oddOrEven = date % 2 == 1 ? "odd" : "even";
   const selectedDayInfo = dormInfo[yearPlusMonth][oddOrEven];
-  const cookie = useCookie(props.cookie);
-  const [gender, setGender] = useState<string>(cookie.get("gender") || "male");
-  const iconSize = 30;
   return (
     <CardLayout>
-      <div>
-        <div className={styles.heading}>
-          <h2>청암학사 사감</h2>
-          {gender == "male" ? (
-            <div
-              onClick={() => {
-                setGender("female");
-                cookie.set("gender", "female");
-              }}
-            >
-              <MaleIcon size={iconSize} />
-            </div>
-          ) : (
-            <div
-              onClick={() => {
-                setGender("male");
-                cookie.set("gender", "male");
-              }}
-            >
-              <FemaleIcon size={iconSize} />
-            </div>
-          )}
-        </div>
-        <div className={styles.text}>
-          오전 {selectedDayInfo[gender][0]}
-          <br />
-          오후 {selectedDayInfo[gender][1]}
-        </div>
+      <h2 className={styles.heading}>청암학사 사감</h2>
+      <div className={styles.text}>
+        오전: {selectedDayInfo.female[0]}, {selectedDayInfo.male[0]}
+        <br />
+        오후: {selectedDayInfo.female[1]}, {selectedDayInfo.male[1]}
       </div>
     </CardLayout>
   );

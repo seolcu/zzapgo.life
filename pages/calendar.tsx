@@ -5,6 +5,7 @@ import HeaderComponent from "../components/HeaderComponent";
 import styles from "../styles/Calendar.module.scss";
 import MealSwiper from "../components/MealSwiper";
 import Calendar from "react-calendar";
+import DormManager from "../components/DormManager";
 
 const CalendarPage = () => {
   const [dateInfo, setDateInfo] = useState(new Date());
@@ -34,6 +35,11 @@ const CalendarPage = () => {
         // 캘린더 css는 react-calendar.scss에서 하기
       />
       <MealSwiper API={API} fetcher={fetcher} />
+      <DormManager
+        year={dateInfo.getFullYear()}
+        month={dateInfo.getMonth() + 1}
+        date={dateInfo.getDate()}
+      />
       <FooterComponent currentPage={1} />
     </>
   );
