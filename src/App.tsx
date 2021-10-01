@@ -2,13 +2,14 @@ import { Button } from "@chakra-ui/button";
 import { useColorMode, useColorModeValue } from "@chakra-ui/color-mode";
 import {
   Container,
-  HStack,
+  Flex,
   Heading,
   Text,
   Box,
   LinkBox,
   LinkOverlay,
   Center,
+  HStack,
 } from "@chakra-ui/layout";
 import { Switch } from "@chakra-ui/switch";
 import { useState } from "react";
@@ -17,7 +18,13 @@ import Calendar from "react-calendar";
 import "./Calendar.css";
 import MealCard from "./components/MealCard";
 import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/react";
-import { CalendarIcon, LinkIcon, SettingsIcon } from "@chakra-ui/icons";
+import {
+  CalendarIcon,
+  ExternalLinkIcon,
+  LinkIcon,
+  SettingsIcon,
+} from "@chakra-ui/icons";
+import bookMarkInfo from "./data/bookMarkInfo";
 
 function App() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -30,12 +37,12 @@ function App() {
           <TabPanel p="0">
             {/* ------------------------------메인 페이지-------------------------- */}
             <Container>
-              <Heading m="2">홈</Heading>
+              <Heading m="4">홈</Heading>
               <Box
                 bg={useColorModeValue("gray.50", "gray.700")}
                 rounded="md"
-                p="2"
-                m="2"
+                p="4"
+                m="4"
               >
                 <Center>
                   <Calendar
@@ -51,10 +58,9 @@ function App() {
                     minDetail="month"
                   />
                 </Center>
-
+                <br />
                 <Center>
                   <Button
-                    m="2"
                     colorScheme="yellow"
                     onClick={() => setSelectedDate(new Date())}
                     size="sm"
@@ -71,40 +77,56 @@ function App() {
           <TabPanel p="0">
             {/* --------------------------------------북마크 페이지-------------------------------------------- */}
             <Container>
-              <Heading m="2">북마크</Heading>
-              <LinkBox
-                rounded="md"
-                m="2"
-                p="2"
-                bgColor={useColorModeValue("gray.50", "gray.700")}
-              >
-                <Heading size="md" m="2">
-                  <LinkOverlay
-                    href="https://gwangcheol.hs.jne.kr/user/indexMain.action?siteId=gwangcheol_hs"
-                    isExternal
+              <Heading m="4">북마크</Heading>
+              {bookMarkInfo.map((singleBookMarkInfo, index) => {
+                return (
+                  <LinkBox
+                    key={index}
+                    rounded="md"
+                    m="4"
+                    p="4"
+                    bgColor={useColorModeValue("gray.50", "gray.700")}
                   >
-                    광양제철고등학교 홈페이지
-                  </LinkOverlay>
-                </Heading>
-                <Text>
-                  Catch up on what’s been cookin’ at Smashing and explore some
-                  of the most popular community resources.
-                </Text>
-              </LinkBox>
+                    <HStack>
+                      <Heading size="md">
+                        <LinkOverlay href={singleBookMarkInfo.url} isExternal>
+                          {singleBookMarkInfo.title}
+                        </LinkOverlay>
+                      </Heading>
+                      <ExternalLinkIcon />
+                    </HStack>
+                    <Text
+                      as="a"
+                      color={useColorModeValue("yellow.400", "yellow.200")}
+                      fontWeight="bold"
+                    >
+                      {singleBookMarkInfo.url}
+                    </Text>
+                  </LinkBox>
+                );
+              })}
             </Container>
           </TabPanel>
 
           <TabPanel p="0">
+            {/* --------------------------------설정 페이지-------------------------------- */}
             <Container>
-              <Heading m="2">설정</Heading>
-              <HStack>
-                <Text>다크 모드</Text>
-                <Switch
-                  isChecked={colorMode === "dark" ? true : false}
-                  onChange={toggleColorMode}
-                  colorScheme="yellow"
-                />
-              </HStack>
+              <Heading m="4">설정</Heading>
+              <Box
+                bg={useColorModeValue("gray.50", "gray.700")}
+                rounded="md"
+                p="4"
+                m="4"
+              >
+                <Flex align="center" justify="space-between">
+                  <Text>다크 모드</Text>
+                  <Switch
+                    isChecked={colorMode === "dark" ? true : false}
+                    onChange={toggleColorMode}
+                    colorScheme="yellow"
+                  />
+                </Flex>
+              </Box>
             </Container>
           </TabPanel>
         </TabPanels>
@@ -117,13 +139,13 @@ function App() {
           bg={useColorModeValue("gray.50", "gray.700")}
         >
           <Tab>
-            <CalendarIcon boxSize="6" m="2" />
+            <CalendarIcon boxSize="6" m="4" />
           </Tab>
           <Tab>
-            <LinkIcon boxSize="6" m="2" />
+            <LinkIcon boxSize="6" m="4" />
           </Tab>
           <Tab>
-            <SettingsIcon boxSize="6" m="2" />
+            <SettingsIcon boxSize="6" m="4" />
           </Tab>
         </TabList>
       </Tabs>

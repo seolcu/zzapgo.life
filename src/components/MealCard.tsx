@@ -11,6 +11,7 @@ import {
   useColorModeValue,
   Spinner,
   Center,
+  Divider,
 } from "@chakra-ui/react";
 import axios from "axios";
 import useSWR from "swr";
@@ -31,7 +32,7 @@ function MealCard({ date }: MealCardProps) {
 
   if (error) {
     return (
-      <Alert status="error" my="2">
+      <Alert status="error" my="4">
         <AlertIcon />
         급식을 불러오는 중 에러가 발생했습니다.
       </Alert>
@@ -41,17 +42,17 @@ function MealCard({ date }: MealCardProps) {
   if (!data) {
     return (
       <Center>
-        <Spinner color="yellow" size="xl" m="2" />
+        <Spinner color="yellow" size="xl" m="4" />
       </Center>
     );
   }
 
   try {
-    const mealDataArray = data.mealServiceDietInfo[1].row;
+    const mealDataArray: Array<object> = data.mealServiceDietInfo[1].row;
     return (
       <Box
-        m="2"
-        p="2"
+        m="4"
+        p="4"
         rounded="md"
         bg={useColorModeValue("gray.50", "gray.700")}
       >
@@ -66,8 +67,8 @@ function MealCard({ date }: MealCardProps) {
             (mealType == 2 && hours >= 8 && hours < 14) ||
             (mealType == 3 && hours >= 14);
           return (
-            <Box>
-              <HStack m="2" key={index}>
+            <Box key={index}>
+              <HStack key={index}>
                 {/* 조식: 1, 중식: 2, 석식: 3 */}
                 <Heading size="md">
                   {mealType == 1
@@ -85,15 +86,10 @@ function MealCard({ date }: MealCardProps) {
                   지금
                 </Badge>
               </HStack>
-              <UnorderedList>
-                {menuArray.map((singleMenu: string, index: number) => {
-                  return (
-                    <ListItem ms="6" key={index}>
-                      {singleMenu}
-                    </ListItem>
-                  );
-                })}
-              </UnorderedList>
+
+              <SingleMealList array={menuArray} />
+
+              {index + 1 < mealDataArray.length ? <Divider m="2" /> : null}
             </Box>
           );
         })}
@@ -101,8 +97,11 @@ function MealCard({ date }: MealCardProps) {
     );
   } catch (e) {
     // 급식 없을때
+    console.log(e);
+    console.log(data);
+    console.log(data);
     return (
-      <Alert status="warning" my="2">
+      <Alert status="warning" my="4">
         <AlertIcon />
         급식이 없습니다.
       </Alert>
@@ -110,11 +109,15 @@ function MealCard({ date }: MealCardProps) {
   }
 }
 
-function singleMealList(array: Array<string>) {
+interface SingleMealListProps {
+  array: Array<string>;
+}
+
+function SingleMealList({ array }: SingleMealListProps) {
   return (
-    <UnorderedList m="2" textAlign="start">
+    <UnorderedList>
       {array.map((arrayItem, index) => (
-        <ListItem key={index} ms="6">
+        <ListItem key={index} ms="4">
           {arrayItem}
         </ListItem>
       ))}
