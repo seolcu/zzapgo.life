@@ -2,19 +2,24 @@ import Head from "next/head";
 import styles from "../styles/Home.module.scss";
 import HeaderComponent from "../components/HeaderComponent";
 import FooterComponent from "../components/FooterComponent";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
-const Home = ({ mealType, mealList }) => {
-  const MenuList = () => {
+const Home = ({ mealList }) => {
+  const MenuList = (mealType) => {
+    let oneMealList = mealList[mealType];
     let JSX = [];
-    for (let i = 0; i < mealList.length; i++) {
+    for (let i = 0; i < oneMealList.length; i++) {
       JSX.push(
         <li key={i.toString()} className={styles.li}>
-          {mealList[i]}
+          {oneMealList[i]}
         </li>,
       );
     }
     return JSX;
   };
+
+  const hours = new Date().getHours();
   return (
     <>
       <Head>
@@ -22,19 +27,31 @@ const Home = ({ mealType, mealList }) => {
         <meta name="description" content="홈" />
       </Head>
       <HeaderComponent title="홈" />
-      <div className={styles.menuWrapper}>
-        <h2>
-          오늘의{" "}
-          {mealType == 0
-            ? "아침"
-            : mealType == 1
-            ? "점심"
-            : mealType == 2
-            ? "저녁"
-            : "???"}
-        </h2>
-        <ul>{MenuList()}</ul>
-      </div>
+      <Swiper
+        slidesPerView={1.2}
+        centeredSlides={true}
+        direction={"horizontal"}
+        initialSlide={hours <= 8 ? 0 : hours <= 14 ? 1 : 2}
+      >
+        <SwiperSlide>
+          <div className={styles.menuWrapper}>
+            <h2>오늘의 아침</h2>
+            <ul>{MenuList(0)}</ul>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className={styles.menuWrapper}>
+            <h2>오늘의 점심</h2>
+            <ul>{MenuList(1)}</ul>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div className={styles.menuWrapper}>
+            <h2>오늘의 저녁</h2>
+            <ul>{MenuList(2)}</ul>
+          </div>
+        </SwiperSlide>
+      </Swiper>
       <ThemeChanger />
       <FooterComponent currentPage="0" />
     </>
@@ -45,15 +62,6 @@ export const getServerSideProps = async () => {
   const year = new Date().getFullYear();
   const month = ("0" + (new Date().getMonth() + 1)).slice(-2);
   const date = ("0" + new Date().getDate()).slice(-2);
-  const hours = new Date().getHours();
-  let mealType;
-  if (hours <= 8) {
-    mealType = 0;
-  } else if (hours <= 14) {
-    mealType = 1;
-  } else {
-    mealType = 2;
-  }
 
   // Fetch data from external API
   const res = await fetch(
@@ -64,9 +72,12 @@ export const getServerSideProps = async () => {
   const parseDataStringIntoList = (dataString) => {
     return dataString.replace(/\./gi, "").replace(/[0-9]/g, "").split("<br/>"); //removing tags
   };
-  const mealList = parseDataStringIntoList(mealData[mealType].DDISH_NM);
+  let mealList = [];
+  for (let i = 0; i < 3; i++) {
+    mealList.push(parseDataStringIntoList(mealData[i].DDISH_NM));
+  }
   // Pass data to the page via props
-  return { props: { mealType, mealList } };
+  return { props: { mealList } };
 };
 
 import { useTheme } from "next-themes";

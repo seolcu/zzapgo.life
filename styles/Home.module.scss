@@ -1,12 +1,17 @@
 .menuWrapper {
   padding: 10px;
-  margin: 10px 0;
+  margin: 10px;
   background: var(--fgColor);
   color: var(--innerTextColor);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   h2 {
-    margin: 0;
+    margin: 5px;
   }
   ul {
+    margin: 5px;
     li {
       font-size: 17px;
       margin: 3px;
