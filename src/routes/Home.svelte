@@ -21,7 +21,10 @@
   mealType={hours <= 8 ? 0 : hours <= 14 ? 1 : hours <= 19 ? 2 : 2}
 />
 <!-- mealType: 0 조식 1 중식 2 석식 -->
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+/><br /><br /><br /><br /><br /><br /><br />
 <DormManager {year} {month} {date} {hours} />
+
 <Footer currentURL="/" />
 
 <style>
