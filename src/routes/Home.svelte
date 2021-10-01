@@ -1,5 +1,6 @@
 <script>
   import Developing from "../components/Developing.svelte";
+  import DormManager from "../components/DormManager.svelte";
 
   import Footer from "../components/Footer.svelte";
   import Header from "../components/Header.svelte";
@@ -18,7 +19,7 @@
   mealType={hours <= 8 ? 0 : hours <= 14 ? 1 : hours <= 19 ? 2 : 2}
 />
 <!-- mealType: 0 조식 1 중식 2 석식 -->
-<Developing content="지금의사감" />
+<DormManager />
 <Footer currentURL="/" />
 
 <style>
