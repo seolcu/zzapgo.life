@@ -29,6 +29,11 @@ const bookMarkInfo = [
     title: "짭고라이프 소스 코드",
     url: "https://github.com/seolcu/zzapgo.life",
   },
+  {
+    id: 7,
+    title: "컴맹가이드",
+    url: "https://combaboguide.tistory.com",
+  },
 ];
 
 export default bookMarkInfo;
