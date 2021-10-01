@@ -23,7 +23,7 @@ const FooterComponent = ({ currentPage }: Props) => {
     IconComponent,
     text,
   }: LinkComponentProps) => {
-    const size = "35";
+    const size = "30";
     return (
       <Link href={url}>
         <a className={styles.a}>
