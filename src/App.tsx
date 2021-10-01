@@ -37,12 +37,12 @@ function App() {
           <TabPanel p="0">
             {/* ------------------------------메인 페이지-------------------------- */}
             <Container>
-              <Heading m="4">홈</Heading>
+              <Heading my="4">홈</Heading>
               <Box
                 bg={useColorModeValue("gray.50", "gray.700")}
                 rounded="md"
                 p="4"
-                m="4"
+                my="4"
               >
                 <Center>
                   <Calendar
@@ -77,13 +77,13 @@ function App() {
           <TabPanel p="0">
             {/* --------------------------------------북마크 페이지-------------------------------------------- */}
             <Container>
-              <Heading m="4">북마크</Heading>
+              <Heading my="4">북마크</Heading>
               {bookMarkInfo.map((singleBookMarkInfo, index) => {
                 return (
                   <LinkBox
                     key={index}
                     rounded="md"
-                    m="4"
+                    my="4"
                     p="4"
                     bgColor={useColorModeValue("gray.50", "gray.700")}
                   >
@@ -111,12 +111,12 @@ function App() {
           <TabPanel p="0">
             {/* --------------------------------설정 페이지-------------------------------- */}
             <Container>
-              <Heading m="4">설정</Heading>
+              <Heading my="4">설정</Heading>
               <Box
                 bg={useColorModeValue("gray.50", "gray.700")}
                 rounded="md"
                 p="4"
-                m="4"
+                my="4"
               >
                 <Flex align="center" justify="space-between">
                   <Text>다크 모드</Text>
