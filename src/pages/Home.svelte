@@ -1,13 +1,13 @@
 <script lang="ts">
   import Header from "../components/Header.svelte";
   import MealSwiper from "../components/MealSwiper.svelte";
-  import { selectedThemeName } from "../data/selectedThemeName";
-
+  import { init, selectedThemeName } from "../data/selectedThemeName";
   const themeList = [
     { id: 1, themeName: "클래식" },
     { id: 2, themeName: "라이트" },
     { id: 3, themeName: "다크" },
   ];
+  
 </script>
 
 <Header content="홈" />
