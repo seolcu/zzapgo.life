@@ -1,4 +1,4 @@
-import styles from "./HeaderComponent.module.scss";
+import styles from "../styles/components/HeaderComponent.module.scss";
 
 interface Props {
   title: string;

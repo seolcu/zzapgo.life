@@ -1,4 +1,4 @@
-import styles from "./DormManager.module.scss";
+import styles from "../styles/components/DormManager.module.scss";
 import FemaleIcon from "./icons/FemaleIcon";
 import MaleIcon from "./icons/MaleIcon";
 
