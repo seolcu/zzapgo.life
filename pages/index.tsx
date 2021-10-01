@@ -5,6 +5,7 @@ import FooterComponent from "../components/FooterComponent";
 import DormManager from "../components/DormManager";
 import MealSwiper from "../components/MealSwiper";
 import { SWRConfig } from "swr";
+import CardLayout from "../components/CardLayout";
 
 const year = new Date().getFullYear();
 const month = new Date().getMonth() + 1;
@@ -25,6 +26,18 @@ const Home = () => {
       <MealSwiper API={API} fetcher={fetcher} />
 
       <DormManager year={year} month={month} date={date} />
+      <CardLayout>
+        <h2 style={{ margin: "10px" }}>개발 종료 안내</h2>
+        <div style={{ margin: "10px" }}>
+          2021년 11월 07일 이후로,
+          <br />
+          짭고라이프는 더 이상 업데이트되지 않습니다.
+          <br />
+          코딩은 최대한 내려놓고, 학업에 더욱 집중하고자 합니다.
+          <br />
+          급식 서비스는 계속 사용하실 수 있습니다.
+        </div>
+      </CardLayout>
       <FooterComponent currentPage={0} />
     </>
   );
