@@ -1,6 +1,6 @@
 <script>
   import { link } from "svelte-spa-router";
-  import pageInfo from "../pageInfo";
+  import pageInfo from "../data/pageInfo";
 
   export let currentURL;
 </script>

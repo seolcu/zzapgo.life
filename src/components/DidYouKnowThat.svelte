@@ -1,5 +1,5 @@
 <script>
-  import TMI from "../TMI";
+  import TMI from "../data/TMI";
   const randomInt = Math.floor(Math.random() * TMI.length); // 0 ~ 리스트 길이-1
   const sentence = TMI[randomInt];
 </script>
