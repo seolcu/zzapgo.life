@@ -7,8 +7,8 @@ const MyApp = ({ Component, pageProps }) => {
     <ThemeProvider
       defaultTheme="system"
       enableSystem={true}
-      themes={["system", "라이트", "다크", "클래식"]}
-      value={{ 라이트: "light", 다크: "dark", 클래식: "classic" }}
+      themes={["system", "라이트", "다크", "클래식"]} // 테마 이름
+      value={{ 라이트: "light", 다크: "dark", 클래식: "classic" }} // (테마 이름): (themes.scss의 이름)
     >
       <Component {...pageProps} />
     </ThemeProvider>

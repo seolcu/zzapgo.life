@@ -1,20 +1,20 @@
 [data-theme="light"] {
-  --bgColor: #eee;
+  --bgColor: #f3f3f3;
   --fgColor: #fff;
   --outerTextColor: #000;
-  --innerTextColor: #111;
+  --innerTextColor: #000;
 }
 
 [data-theme="dark"] {
   --bgColor: #111;
-  --fgColor: #000;
+  --fgColor: #333;
   --outerTextColor: #fff;
-  --innerTextColor: #eee;
+  --innerTextColor: #fff;
 }
 
 [data-theme="classic"] {
   --bgColor: #eee;
-  --fgColor: #111;
-  --outerTextColor: #111;
-  --innerTextColor: #eee;
+  --fgColor: #333;
+  --outerTextColor: #000;
+  --innerTextColor: #fff;
 }
