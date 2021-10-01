@@ -16,5 +16,3 @@
 </script>
 
 <Router {routes} />
-
-<br /><br /><br />
