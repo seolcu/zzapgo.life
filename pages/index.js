@@ -28,8 +28,9 @@ const Home = ({ mealList }) => {
       </Head>
       <HeaderComponent title="홈" />
       <Swiper
-        slidesPerView={1.1}
+        slidesPerView={1}
         centeredSlides={true}
+        spaceBetween={-30}
         direction={"horizontal"}
         initialSlide={hours <= 8 ? 0 : hours <= 14 ? 1 : 2}
       >
