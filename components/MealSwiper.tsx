@@ -3,9 +3,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import useSWR from "swr";
 
-const MealCard = ({ data }) => {
+interface MealCardProps {
+  data: any;
+}
+
+const MealCard = ({ data }: MealCardProps) => {
   const mealType = data.MMEAL_SC_CODE; // 조식: 1, 중식: 2, 석식: 3
-  const parseDataStringIntoList = (dataString) => {
+  const parseDataStringIntoList = (dataString: string) => {
     return dataString.replace(/\./gi, "").replace(/[0-9]/g, "").split("<br/>"); // 태그 제거
   };
   const menuList = parseDataStringIntoList(data.DDISH_NM);
@@ -22,7 +26,7 @@ const MealCard = ({ data }) => {
         급식
       </h2>
       <ul>
-        {menuList.map((obj, index) => {
+        {menuList.map((obj: string, index: number) => {
           return <li key={index}>{obj}</li>;
         })}
       </ul>
@@ -36,7 +40,7 @@ const MealSwiper = () => {
   const date = ("0" + new Date().getDate()).slice(-2);
   const hours = new Date().getHours();
 
-  const fetcher = (...args) => fetch(...args).then((res) => res.json());
+  const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data, error } = useSWR(
     `https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=015f0705bbe0482589da35f787d46817&Type=json&pIndex=1&pSize=3&ATPT_OFCDC_SC_CODE=Q10&SD_SCHUL_CODE=8490078&MLSV_YMD=${year}${month}${date}`,
     fetcher,
@@ -79,7 +83,7 @@ const MealSwiper = () => {
         direction={"horizontal"}
         initialSlide={hours <= 8 ? 0 : hours <= 14 ? 1 : 2}
       >
-        {mealDataList.map((mealData, index) => {
+        {mealDataList.map((mealData: Object, index: number) => {
           return (
             <SwiperSlide key={index}>
               <MealCard data={mealData} />

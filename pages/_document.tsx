@@ -1,7 +1,7 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
-  static async getInitialProps(ctx) {
+  static async getInitialProps(ctx: any) {
     const initialProps = await Document.getInitialProps(ctx);
     return { ...initialProps };
   }
@@ -10,6 +10,11 @@ class MyDocument extends Document {
     return (
       <Html lang="ko">
         <Head>
+          <meta charSet="utf-8" />
+          <meta
+            name="google-site-verification"
+            content="9eV5DjPzjOQsKn4C2lBLhUEMJBj-7fJqsd4PuCyy5-8"
+          />
           <link
             rel="apple-touch-icon"
             sizes="57x57"
