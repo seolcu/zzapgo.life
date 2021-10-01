@@ -1,6 +1,9 @@
 import Link from "next/link";
 import HomeIcon from "./icons/HomeIcon";
 import CalendarIcon from "./icons/CalendarIcon";
+import BookmarkIcon from "./icons/BookmarkIcon";
+import ClockIcon from "./icons/ClockIcon";
+import MenuIcon from "./icons/MenuIcon";
 import styles from "../styles/components/FooterComponent.module.scss";
 
 interface Props {
@@ -8,41 +11,72 @@ interface Props {
 }
 
 const FooterComponent = ({ currentPage }: Props) => {
-  const size = "35";
+  interface LinkComponentProps {
+    url: string;
+    pageIndex: number;
+    IconComponent: any;
+    text: string;
+  }
+  const LinkComponent = ({
+    url,
+    pageIndex,
+    IconComponent,
+    text,
+  }: LinkComponentProps) => {
+    const size = "35";
+    return (
+      <Link href={url}>
+        <a className={styles.a}>
+          <IconComponent
+            size={size}
+            selected={currentPage == pageIndex ? true : false}
+          />
+          <div
+            style={
+              currentPage == pageIndex
+                ? { color: "var(--footerIconEnabled)" }
+                : { color: "var(--footerIconDisabled)" }
+            }
+          >
+            {text}
+          </div>
+        </a>
+      </Link>
+    );
+  };
   return (
     <>
       <footer className={styles.wrapper}>
-        <Link href="/">
-          <a className={styles.a}>
-            <HomeIcon size={size} selected={currentPage == 0 ? true : false} />
-            <div
-              style={
-                currentPage == 0
-                  ? { color: "var(--footerIconEnabled)" }
-                  : { color: "var(--footerIconDisabled)" }
-              }
-            >
-              홈
-            </div>
-          </a>
-        </Link>
-        <Link href="/calendar">
-          <a className={styles.a}>
-            <CalendarIcon
-              size={size}
-              selected={currentPage == 1 ? true : false}
-            />
-            <div
-              style={
-                currentPage == 1
-                  ? { color: "var(--footerIconEnabled)" }
-                  : { color: "var(--footerIconDisabled)" }
-              }
-            >
-              캘린더
-            </div>
-          </a>
-        </Link>
+        <LinkComponent
+          url="/"
+          pageIndex={0}
+          IconComponent={HomeIcon}
+          text="홈"
+        />
+        <LinkComponent
+          url="/calendar"
+          pageIndex={1}
+          IconComponent={CalendarIcon}
+          text="캘린더"
+        />
+        <LinkComponent
+          url="/bookmark"
+          pageIndex={2}
+          IconComponent={BookmarkIcon}
+          text="북마크"
+        />
+        <LinkComponent
+          url="/timetable"
+          pageIndex={3}
+          IconComponent={ClockIcon}
+          text="시간표"
+        />
+        <LinkComponent
+          url="/about"
+          pageIndex={4}
+          IconComponent={MenuIcon}
+          text="더보기"
+        />
       </footer>
 
       {/* 푸터에 가리지 않기 위한 여백 */}
