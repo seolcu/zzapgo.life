@@ -1,5 +1,5 @@
 <script>
-  import dormInfo from "../data/dormInfo";
+  import dormInfo from "../dormInfo";
 
   export let year;
   export let month; // 두자리 string
