@@ -14,8 +14,6 @@
     URL={oneShortcut.URL}
   />
 {/each}
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
-/><br /><br /><br /><br /><br /><br /><br />
 <Footer currentURL="/shortcut" />
 
 <style>
