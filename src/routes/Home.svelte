@@ -1,5 +1,6 @@
 <script>
   import Footer from "../components/Footer.svelte";
+  import Header from "../components/Header.svelte";
   import OneMeal from "../components/OneMeal.svelte";
   const year = new Date().getFullYear();
   const month = ("0" + (new Date().getMonth() + 1)).slice(-2);
@@ -7,7 +8,7 @@
   const hours = new Date().getHours();
 </script>
 
-<h1>홈</h1>
+<Header content="홈" />
 <OneMeal
   {year}
   {month}
@@ -18,8 +19,4 @@
 <Footer currentURL="/" />
 
 <style>
-  h1 {
-    margin: 5px;
-    font-size: 40px;
-  }
 </style>
