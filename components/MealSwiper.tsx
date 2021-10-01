@@ -42,9 +42,11 @@ const MealSwiper = ({ API, fetcher }: MealSwiperProps) => {
 
   if (error) {
     return (
-      <CardLayout className={styles.normalWrapper}>
-        <h2>오류 발생</h2>
-        <div>급식을 가져오는 중 오류가 발생했습니다.</div>
+      <CardLayout>
+        <h2 className={styles.heading}>오류 발생</h2>
+        <div className={styles.text}>
+          급식을 가져오는 중 오류가 발생했습니다.
+        </div>
       </CardLayout>
     );
   }
@@ -52,7 +54,7 @@ const MealSwiper = ({ API, fetcher }: MealSwiperProps) => {
   if (!data) {
     return (
       <CardLayout>
-        <h2>
+        <h2 className={styles.heading}>
           {hours <= 8
             ? "아침"
             : hours <= 14
@@ -62,7 +64,7 @@ const MealSwiper = ({ API, fetcher }: MealSwiperProps) => {
             : "아침"}{" "}
           급식
         </h2>
-        <ul>
+        <ul className={styles.ul}>
           <li />
           <li />
           <li />
@@ -108,12 +110,10 @@ const MealSwiper = ({ API, fetcher }: MealSwiperProps) => {
   } catch (e) {
     // 급식 없을때
     return (
-      <SwiperSlide>
-        <CardLayout>
-          <h2>급식 없음</h2>
-          <div>급식이 없습니다.</div>
-        </CardLayout>
-      </SwiperSlide>
+      <CardLayout>
+        <h2 className={styles.heading}>급식 없음</h2>
+        <div className={styles.text}>급식이 없습니다.</div>
+      </CardLayout>
     );
   }
 };

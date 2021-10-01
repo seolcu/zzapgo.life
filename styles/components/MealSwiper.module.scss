@@ -20,19 +20,17 @@
   }
 }
 
-.normalWrapper {
-  h2 {
-    margin: 10px;
-  }
-  div {
-    margin: 10px;
-  }
-  ul {
-    margin: 10px;
-    padding-left: 20px;
-    li {
-      font-size: 18px;
-      margin: 3px;
-    }
+.heading {
+  margin: 10px;
+}
+.text {
+  margin: 10px;
+}
+.ul {
+  margin: 10px;
+  padding-left: 20px;
+  li {
+    font-size: 18px;
+    margin: 3px;
   }
 }
