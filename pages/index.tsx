@@ -9,7 +9,12 @@ import { SWRConfig } from "swr";
 const year = new Date().getFullYear();
 const month = new Date().getMonth() + 1;
 const date = new Date().getDate();
-const Home = ({ fallback }: any) => {
+// 급식 API
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
+const API = `https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=015f0705bbe0482589da35f787d46817&Type=json&pIndex=1&pSize=3&ATPT_OFCDC_SC_CODE=Q10&SD_SCHUL_CODE=8490078&MLSV_YMD=${year}${(
+  "0" + month
+).slice(-2)}${("0" + date).slice(-2)}`;
+const Home = () => {
   return (
     <>
       <Head>
@@ -17,29 +22,12 @@ const Home = ({ fallback }: any) => {
         <meta name="description" content="홈" />
       </Head>
       <HeaderComponent title="홈" />
-      <SWRConfig value={{ fallback }}>
-        <MealSwiper API={API} fetcher={null} />
-      </SWRConfig>
+      <MealSwiper API={API} fetcher={fetcher} />
+
       <DormManager year={year} month={month} date={date} />
       <FooterComponent currentPage={0} />
     </>
   );
 };
-
-// 급식 API
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
-const API = `https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=015f0705bbe0482589da35f787d46817&Type=json&pIndex=1&pSize=3&ATPT_OFCDC_SC_CODE=Q10&SD_SCHUL_CODE=8490078&MLSV_YMD=${year}${(
-  "0" + month
-).slice(-2)}${("0" + date).slice(-2)}`;
-export async function getServerSideProps() {
-  const mealData = await fetcher(API);
-  return {
-    props: {
-      fallback: {
-        [API]: mealData,
-      },
-    },
-  };
-}
 
 export default Home;
