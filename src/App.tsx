@@ -66,6 +66,22 @@ function App() {
                 </LinkBox>
               </Alert>
 
+              <LinkBox my="4">
+                <Alert status="info" rounded="md">
+                  <AlertIcon />
+                  <LinkOverlay
+                    href="https://combaboguide.tistory.com/"
+                    isExternal
+                  >
+                    IT 블로그{" "}
+                    <Text as="a" fontWeight="bold" decoration="underline">
+                      "컴맹가이드"
+                    </Text>{" "}
+                    오픈🥳
+                  </LinkOverlay>
+                </Alert>
+              </LinkBox>
+
               <Box
                 bg={useColorModeValue("gray.50", "gray.700")}
                 rounded="md"
