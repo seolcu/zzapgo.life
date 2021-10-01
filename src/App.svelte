@@ -17,5 +17,5 @@
 </script>
 
 <Router {routes} />
-<Footer />
+
 <br /><br /><br /><br /><br />

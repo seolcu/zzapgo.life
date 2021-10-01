@@ -2,15 +2,15 @@
   import { link } from "svelte-spa-router";
   import pageInfo from "../pageInfo";
 
-  let selected = "home";
+  export let currentURL;
 </script>
 
 <footer>
   {#each pageInfo as oneLink}
-    <a href={oneLink.url} use:link on:click={() => (selected = oneLink.name)}>
+    <a href={oneLink.url} use:link on:click={() => (currentURL = oneLink.url)}>
       <svelte:component
         this={oneLink.icon}
-        color={selected == oneLink.name ? "#FFFFFF" : "#888888"}
+        color={currentURL == oneLink.url ? "#FFFFFF" : "#888888"}
       />
     </a>
   {/each}
