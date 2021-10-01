@@ -1,3 +1,5 @@
-import { readable, writable } from "svelte/store";
+import { writable } from "svelte/store";
 
-export const selectedThemeName = writable("");
+const storedTheme = localStorage.theme;
+export const selectedThemeName = writable(storedTheme || "클래식");
+selectedThemeName.subscribe((value) => (localStorage.theme = value));
