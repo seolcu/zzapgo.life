@@ -11,7 +11,7 @@ const Calendar = () => {
         <meta name="description" content="캘린더" />
       </Head>
       <HeaderComponent title="캘린더" />
-      <FooterComponent currentPage="1" />
+      <FooterComponent currentPage={1} />
     </>
   );
 };

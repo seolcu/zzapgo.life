@@ -1,10 +1,13 @@
 import Link from "next/link";
-import Image from "next/image";
 import HomeIcon from "./icons/HomeIcon";
 import CalendarIcon from "./icons/CalendarIcon";
 import styles from "./FooterComponent.module.scss";
 
-const FooterComponent = ({ currentPage }) => {
+interface Props {
+  currentPage: number;
+}
+
+const FooterComponent = ({ currentPage }: Props) => {
   const size = "35";
   return (
     <>

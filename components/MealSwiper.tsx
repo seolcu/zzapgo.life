@@ -1,7 +1,7 @@
 import styles from "./MealSwiper.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 import useSWR from "swr";
+import "swiper/css";
 
 const MealCard = ({ data }: any) => {
   const mealType = data.MMEAL_SC_CODE; // 조식: 1, 중식: 2, 석식: 3
