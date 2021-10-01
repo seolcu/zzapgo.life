@@ -1,0 +1,9 @@
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  min-height: 96vh;
+  /* 아이폰 네비게이션 바 제거를 위한 적절한 높이 지정 */
+}
