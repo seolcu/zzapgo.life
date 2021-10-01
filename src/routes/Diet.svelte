@@ -8,7 +8,9 @@
   const date = ("0" + new Date().getDate()).slice(-2); // 두자리
 </script>
 
-<Header content="{month}월 {date}일" />
+<!-- 헤더는 한자리 숫자로 표시 -->
+<!-- getMonth는 0~11 이라 1 추가 -->
+<Header content="{new Date().getMonth() + 1}월 {new Date().getDate()}일" />
 
 {#each [0, 1, 2] as mealType}
   <OneMeal {mealType} {year} {month} {date} />
