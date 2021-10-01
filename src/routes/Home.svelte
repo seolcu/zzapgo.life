@@ -12,6 +12,8 @@
 </script>
 
 <Header content="홈" />
+<Developing content="공지" />
+<Developing content="날씨" />
 <OneMeal
   {year}
   {month}
