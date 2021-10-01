@@ -30,8 +30,10 @@ const ThemeChanger = () => {
   return (
     <div>
       The current theme is: {theme}
-      <button onClick={() => setTheme("light")}>Light Mode</button>
-      <button onClick={() => setTheme("dark")}>Dark Mode</button>
+      <button onClick={() => setTheme("system")}>시스템</button>
+      <button onClick={() => setTheme("라이트")}>라이트</button>
+      <button onClick={() => setTheme("다크")}>다크</button>
+      <button onClick={() => setTheme("클래식")}>클래식</button>
     </div>
   );
 };
