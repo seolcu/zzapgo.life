@@ -1,5 +1,6 @@
 <script>
   import Developing from "../components/Developing.svelte";
+  import DidYouKnowThat from "../components/DidYouKnowThat.svelte";
   import DormManager from "../components/DormManager.svelte";
 
   import Footer from "../components/Footer.svelte";
@@ -12,7 +13,6 @@
 </script>
 
 <Header content="홈" />
-<Developing content="공지" />
 <Developing content="날씨" />
 <OneMeal
   {year}
@@ -22,6 +22,7 @@
 />
 <!-- mealType: 0 조식 1 중식 2 석식 -->
 <DormManager {year} {month} {date} {hours} />
+<DidYouKnowThat />
 
 <Footer currentURL="/" />
 
