@@ -3,6 +3,8 @@
   --fgColor: #fff;
   --outerTextColor: #000;
   --innerTextColor: #000;
+  --footerIconDisabled: #000;
+  --footerIconEnabled: #6b76ff;
 }
 
 [data-theme="dark"] {
@@ -10,6 +12,8 @@
   --fgColor: #333;
   --outerTextColor: #fff;
   --innerTextColor: #fff;
+  --footerIconDisabled: #fff;
+  --footerIconEnabled: #6b76ff;
 }
 
 [data-theme="classic"] {
@@ -17,4 +21,6 @@
   --fgColor: #333;
   --outerTextColor: #000;
   --innerTextColor: #fff;
+  --footerIconDisabled: #fff;
+  --footerIconEnabled: #6b76ff;
 }

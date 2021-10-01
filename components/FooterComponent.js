@@ -6,18 +6,16 @@ import styles from "./FooterComponent.module.scss";
 
 const FooterComponent = ({ currentPage }) => {
   const size = "35";
-  const opacity = 0.5;
   return (
     <footer className={styles.wrapper}>
       <Link href="/">
-        <a
-          className={styles.a}
-          style={currentPage == 0 ? { opacity: 1 } : { opacity: opacity }}
-        >
-          <HomeIcon size={size} />
+        <a className={styles.a}>
+          <HomeIcon size={size} selected={currentPage == 0 ? true : false} />
           <div
             style={
-              currentPage == 0 ? { display: "block" } : { display: "none" }
+              currentPage == 0
+                ? { color: "var(--footerIconEnabled)" }
+                : { color: "var(--footerIconDisabled)" }
             }
           >
             홈
@@ -25,14 +23,16 @@ const FooterComponent = ({ currentPage }) => {
         </a>
       </Link>
       <Link href="/calendar">
-        <a
-          className={styles.a}
-          style={currentPage == 1 ? { opacity: 1 } : { opacity: opacity }}
-        >
-          <CalendarIcon size={size} />
+        <a className={styles.a}>
+          <CalendarIcon
+            size={size}
+            selected={currentPage == 1 ? true : false}
+          />
           <div
             style={
-              currentPage == 1 ? { display: "block" } : { display: "none" }
+              currentPage == 1
+                ? { color: "var(--footerIconEnabled)" }
+                : { color: "var(--footerIconDisabled)" }
             }
           >
             캘린더
