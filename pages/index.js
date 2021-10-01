@@ -36,23 +36,24 @@ const Home = ({ mealList }) => {
       >
         <SwiperSlide>
           <div className={styles.menuWrapper}>
-            <h2>오늘의 아침</h2>
+            <h2>오늘 아침</h2>
             <ul>{MenuList(0)}</ul>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className={styles.menuWrapper}>
-            <h2>오늘의 점심</h2>
+            <h2>오늘 점심</h2>
             <ul>{MenuList(1)}</ul>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className={styles.menuWrapper}>
-            <h2>오늘의 저녁</h2>
+            <h2>오늘 저녁</h2>
             <ul>{MenuList(2)}</ul>
           </div>
         </SwiperSlide>
       </Swiper>
+      <DormManager />
       <ThemeChanger />
       <FooterComponent currentPage="0" />
     </>
@@ -83,6 +84,7 @@ export const getServerSideProps = async () => {
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import DormManager from "../components/DormManager";
 
 const ThemeChanger = () => {
   const [mounted, setMounted] = useState(false);
