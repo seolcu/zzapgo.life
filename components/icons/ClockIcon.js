@@ -7,9 +7,7 @@ const ClockIcon = ({ size, selected }) => {
       viewBox="0 0 24 24"
       fill="none"
       style={
-        selected
-          ? { stroke: "var(--footerIconEnabled)" }
-          : { stroke: "var(--footerIconDisabled)" }
+        selected ? { stroke: "var(--primary)" } : { stroke: "var(--secondary)" }
       }
       strokeWidth="2"
       strokeLinecap="round"

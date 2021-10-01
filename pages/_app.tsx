@@ -1,5 +1,6 @@
 import "../styles/globals.scss";
 import "../styles/themes.scss";
+import "../styles/react-calendar.scss";
 import { AppProps } from "next/app";
 import { ThemeProvider } from "next-themes";
 
