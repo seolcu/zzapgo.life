@@ -17,6 +17,8 @@
 {#each [0, 1, 2] as mealType}
   <OneMeal {mealType} {year} {month} {date} />
 {/each}
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br
+/><br /><br /><br /><br /><br /><br /><br />
 <Footer currentURL="/diet" />
 
 <style>
