@@ -2,7 +2,6 @@
   import axios from "axios";
   import themeList from "../data/themeList";
   import { selectedThemeName } from "../data/stores";
-  const selectedTheme = themeList[$selectedThemeName];
 
   export let year;
   export let month;
@@ -22,7 +21,8 @@
 
 <div
   class="mealWrapper"
-  style="background: {selectedTheme.subBGColor}; color: {selectedTheme.innerFontColor};"
+  style="background: {themeList[$selectedThemeName]
+    .subBGColor}; color: {themeList[$selectedThemeName].innerFontColor};"
 >
   <h3>
     오늘
