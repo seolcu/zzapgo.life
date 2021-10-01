@@ -4,8 +4,9 @@ import HeaderComponent from "../components/HeaderComponent";
 import FooterComponent from "../components/FooterComponent";
 import DormManager from "../components/DormManager";
 import MealSwiper from "../components/MealSwiper";
+import { SWRConfig } from "swr";
 
-const Home = () => {
+const Home = ({ fallback }: any) => {
   return (
     <>
       <Head>
@@ -13,7 +14,9 @@ const Home = () => {
         <meta name="description" content="홈" />
       </Head>
       <HeaderComponent title="홈" />
-      <MealSwiper />
+      <SWRConfig value={{ fallback }}>
+        <MealSwiper API={API} />
+      </SWRConfig>
       <DormManager />
       <ThemeChanger />
       <FooterComponent currentPage="0" />
@@ -21,6 +24,24 @@ const Home = () => {
   );
 };
 
+// 급식 API
+const year = new Date().getFullYear();
+const month = ("0" + (new Date().getMonth() + 1)).slice(-2);
+const date = ("0" + new Date().getDate()).slice(-2);
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
+const API = `https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=015f0705bbe0482589da35f787d46817&Type=json&pIndex=1&pSize=3&ATPT_OFCDC_SC_CODE=Q10&SD_SCHUL_CODE=8490078&MLSV_YMD=${year}${month}${date}`;
+export async function getServerSideProps() {
+  const mealData = await fetcher(API);
+  return {
+    props: {
+      fallback: {
+        [API]: mealData,
+      },
+    },
+  };
+}
+
+// 테마
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
