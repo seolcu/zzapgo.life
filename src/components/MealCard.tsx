@@ -63,8 +63,8 @@ function MealCard({ date }: MealCardProps) {
           const menuArray = menuString.split("<br/>");
           const isSameDate = date.toDateString() === new Date().toDateString();
           const isNowAvailable =
-            (mealType == 1 && hours < 8) ||
-            (mealType == 2 && hours >= 8 && hours < 14) ||
+            (mealType == 1 && hours < 9) ||
+            (mealType == 2 && hours >= 9 && hours < 14) ||
             (mealType == 3 && hours >= 14);
           return (
             <Box key={index}>
