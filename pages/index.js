@@ -4,16 +4,16 @@ import OneMeal from "../components/OneMeal";
 
 const Home = ({ mealType, currentMealList }) => {
   return (
-    <div>
+    <>
       <Head>
         <title>홈</title>
         <meta name="description" content="홈" />
       </Head>
       <header className={styles.header}>홈</header>
-      <h1 className={styles.title}>홈</h1>
       <OneMeal mealType={mealType} mealList={currentMealList} />
       <ThemeChanger />
-    </div>
+      <FooterComponent currentPage="0" />
+    </>
   );
 };
 
@@ -40,6 +40,7 @@ export const getServerSideProps = async () => {
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
+import FooterComponent from "../components/FooterComponent";
 
 const ThemeChanger = () => {
   const [mounted, setMounted] = useState(false);
