@@ -1,6 +1,6 @@
 <script lang="ts">
   import themeList from "../data/themeList";
-  import { selectedThemeName } from "../data/stores";
+  import { selectedThemeName } from "../data/selectedThemeName";
 
   export let content: string;
 </script>

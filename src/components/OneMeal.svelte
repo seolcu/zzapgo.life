@@ -1,7 +1,7 @@
 <script lang="ts">
   import axios from "axios";
   import themeList from "../data/themeList";
-  import { selectedThemeName } from "../data/stores";
+  import { selectedThemeName } from "../data/selectedThemeName";
 
   export let year;
   export let month;
