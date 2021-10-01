@@ -34,6 +34,14 @@ interface Props {
 const DormManager = ({ year, month, date }: Props) => {
   const yearPlusMonth = `${year}/${month}`;
   const oddOrEven = date % 2 == 1 ? "odd" : "even";
+  if (!dormInfo[yearPlusMonth]) {
+    return (
+      <CardLayout>
+        <h2 className={styles.heading}>청암학사 사감</h2>
+        <div className={styles.text}>정보가 없습니다.</div>
+      </CardLayout>
+    );
+  }
   const selectedDayInfo = dormInfo[yearPlusMonth][oddOrEven];
   return (
     <CardLayout>
