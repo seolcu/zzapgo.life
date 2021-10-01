@@ -5,7 +5,7 @@
   export let currentURL;
 </script>
 
-<br /><br /><br />
+<div class="free-space" />
 <footer>
   {#each pageInfo as oneLink}
     <a href={oneLink.url} use:link on:click={() => (currentURL = oneLink.url)}>
@@ -29,5 +29,8 @@
     padding: 10px 0px 15px 0px;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
+  }
+  .free-space {
+    height: 70px;
   }
 </style>
