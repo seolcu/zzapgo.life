@@ -1,0 +1,20 @@
+[data-theme="light"] {
+  --bgColor: #eee;
+  --fgColor: #fff;
+  --outerTextColor: #000;
+  --innerTextColor: #111;
+}
+
+[data-theme="dark"] {
+  --bgColor: #111;
+  --fgColor: #000;
+  --outerTextColor: #fff;
+  --innerTextColor: #eee;
+}
+
+[data-theme="classic"] {
+  --bgColor: #eee;
+  --fgColor: #111;
+  --outerTextColor: #111;
+  --innerTextColor: #eee;
+}
