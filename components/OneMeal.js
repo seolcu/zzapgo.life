@@ -4,7 +4,7 @@ const OneMeal = ({ mealType, mealList }) => {
   const MenuList = () => {
     let JSX = [];
     for (let i = 0; i < mealList.length; i++) {
-      JSX.push(<li>{mealList[i]}</li>);
+      JSX.push(<li className={styles.li}>{mealList[i]}</li>);
     }
     return JSX;
   };
