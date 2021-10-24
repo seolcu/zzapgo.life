@@ -4,6 +4,11 @@ body {
   margin: 0;
   color: var(--outerTextColor);
   background: var(--bgColor);
+  min-height: 100vh;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
 }
 
 a {

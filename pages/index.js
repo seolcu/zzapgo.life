@@ -1,7 +1,8 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.scss";
+import OneMeal from "../components/OneMeal";
 
-const Home = () => {
+const Home = ({ mealType, currentMealList }) => {
   return (
     <div>
       <Head>
@@ -10,9 +11,31 @@ const Home = () => {
       </Head>
       <header className={styles.header}>홈</header>
       <h1 className={styles.title}>홈</h1>
+      <OneMeal mealType={mealType} mealList={currentMealList} />
       <ThemeChanger />
     </div>
   );
+};
+
+export const getServerSideProps = async () => {
+  const year = new Date().getFullYear();
+  const month = ("0" + (new Date().getMonth() + 1)).slice(-2);
+  const date = ("0" + new Date().getDate()).slice(-2);
+  const hours = new Date().getHours();
+  const mealType = hours <= 8 ? 0 : hours <= 14 ? 1 : hours <= 19 ? 2 : 2;
+
+  // Fetch data from external API
+  const res = await fetch(
+    `https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=015f0705bbe0482589da35f787d46817&Type=json&pIndex=1&pSize=3&ATPT_OFCDC_SC_CODE=Q10&SD_SCHUL_CODE=8490078&MLSV_YMD=${year}${month}${date}`,
+  );
+  const data = await res.json();
+  const mealData = await data.mealServiceDietInfo[1].row;
+  const parseDataStringIntoList = (dataString) => {
+    return dataString.replace(/\./gi, "").replace(/[0-9]/g, "").split("<br/>"); //removing tags
+  };
+  const currentMealList = parseDataStringIntoList(mealData[mealType].DDISH_NM);
+  // Pass data to the page via props
+  return { props: { mealType, currentMealList } };
 };
 
 import { useTheme } from "next-themes";
