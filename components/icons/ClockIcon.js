@@ -1,4 +1,4 @@
-const ClockIcon = ({ size }) => {
+const ClockIcon = ({ size, selected }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,7 +6,11 @@ const ClockIcon = ({ size }) => {
       height={size}
       viewBox="0 0 24 24"
       fill="none"
-      style={{ stroke: "var(--innerTextColor)" }}
+      style={
+        selected
+          ? { stroke: "var(--footerIconEnabled)" }
+          : { stroke: "var(--footerIconDisabled)" }
+      }
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
