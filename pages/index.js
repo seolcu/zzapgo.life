@@ -9,7 +9,7 @@ const Home = ({ mealType, currentMealList }) => {
         <title>홈</title>
         <meta name="description" content="홈" />
       </Head>
-      <header className={styles.header}>홈</header>
+      <HeaderComponent title="홈" />
       <OneMeal mealType={mealType} mealList={currentMealList} />
       <ThemeChanger />
       <FooterComponent currentPage="0" />
@@ -42,6 +42,7 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import FooterComponent from "../components/FooterComponent";
 import HomeIcon from "../components/icons/HomeIcon";
+import HeaderComponent from "../components/HeaderComponent";
 
 const ThemeChanger = () => {
   const [mounted, setMounted] = useState(false);
@@ -58,7 +59,6 @@ const ThemeChanger = () => {
       <button onClick={() => setTheme("system")}>시스템</button>
       <button onClick={() => setTheme("라이트")}>라이트</button>
       <button onClick={() => setTheme("다크")}>다크</button>
-      <button onClick={() => setTheme("클래식")}>클래식</button>
     </div>
   );
 };
