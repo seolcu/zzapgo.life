@@ -28,26 +28,26 @@ const Home = ({ mealList }) => {
       </Head>
       <HeaderComponent title="홈" />
       <Swiper
-        slidesPerView={1.2}
+        slidesPerView={1.1}
         centeredSlides={true}
         direction={"horizontal"}
         initialSlide={hours <= 8 ? 0 : hours <= 14 ? 1 : 2}
       >
         <SwiperSlide>
           <div className={styles.menuWrapper}>
-            <h2>오늘의 아침</h2>
+            <h3>오늘의 아침</h3>
             <ul>{MenuList(0)}</ul>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className={styles.menuWrapper}>
-            <h2>오늘의 점심</h2>
+            <h3>오늘의 점심</h3>
             <ul>{MenuList(1)}</ul>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className={styles.menuWrapper}>
-            <h2>오늘의 저녁</h2>
+            <h3>오늘의 저녁</h3>
             <ul>{MenuList(2)}</ul>
           </div>
         </SwiperSlide>

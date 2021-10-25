@@ -1,19 +1,16 @@
 .menuWrapper {
-  padding: 10px;
-  margin: 10px;
+  margin: 0 5px 20px 5px;
+  padding: 20px;
+  border-radius: 20px;
   background: var(--fgColor);
   color: var(--innerTextColor);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  h2 {
-    margin: 5px;
+  h3 {
+    margin: 0px;
   }
   ul {
-    margin: 5px;
+    margin-top: 10px;
     li {
-      font-size: 17px;
+      font-size: 18px;
       margin: 3px;
     }
   }
