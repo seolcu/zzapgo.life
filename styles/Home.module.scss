@@ -1,0 +1,15 @@
+.menuWrapper {
+  padding: 10px;
+  margin: 10px 0;
+  background: var(--fgColor);
+  color: var(--innerTextColor);
+  h2 {
+    margin: 0;
+  }
+  ul {
+    li {
+      font-size: 17px;
+      margin: 3px;
+    }
+  }
+}

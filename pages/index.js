@@ -1,8 +1,20 @@
 import Head from "next/head";
 import styles from "../styles/Home.module.scss";
-import OneMeal from "../components/OneMeal";
+import HeaderComponent from "../components/HeaderComponent";
+import FooterComponent from "../components/FooterComponent";
 
-const Home = ({ mealType, currentMealList }) => {
+const Home = ({ mealType, mealList }) => {
+  const MenuList = () => {
+    let JSX = [];
+    for (let i = 0; i < mealList.length; i++) {
+      JSX.push(
+        <li key={i.toString()} className={styles.li}>
+          {mealList[i]}
+        </li>,
+      );
+    }
+    return JSX;
+  };
   return (
     <>
       <Head>
@@ -10,7 +22,19 @@ const Home = ({ mealType, currentMealList }) => {
         <meta name="description" content="홈" />
       </Head>
       <HeaderComponent title="홈" />
-      <OneMeal mealType={mealType} mealList={currentMealList} />
+      <div className={styles.menuWrapper}>
+        <h2>
+          오늘의{" "}
+          {mealType == 0
+            ? "아침"
+            : mealType == 1
+            ? "점심"
+            : mealType == 2
+            ? "저녁"
+            : "???"}
+        </h2>
+        <ul>{MenuList()}</ul>
+      </div>
       <ThemeChanger />
       <FooterComponent currentPage="0" />
     </>
@@ -22,7 +46,14 @@ export const getServerSideProps = async () => {
   const month = ("0" + (new Date().getMonth() + 1)).slice(-2);
   const date = ("0" + new Date().getDate()).slice(-2);
   const hours = new Date().getHours();
-  const mealType = hours <= 8 ? 0 : hours <= 14 ? 1 : hours <= 19 ? 2 : 2;
+  let mealType;
+  if (hours <= 8) {
+    mealType = 0;
+  } else if (hours <= 14) {
+    mealType = 1;
+  } else {
+    mealType = 2;
+  }
 
   // Fetch data from external API
   const res = await fetch(
@@ -33,16 +64,13 @@ export const getServerSideProps = async () => {
   const parseDataStringIntoList = (dataString) => {
     return dataString.replace(/\./gi, "").replace(/[0-9]/g, "").split("<br/>"); //removing tags
   };
-  const currentMealList = parseDataStringIntoList(mealData[mealType].DDISH_NM);
+  const mealList = parseDataStringIntoList(mealData[mealType].DDISH_NM);
   // Pass data to the page via props
-  return { props: { mealType, currentMealList } };
+  return { props: { mealType, mealList } };
 };
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import FooterComponent from "../components/FooterComponent";
-import HomeIcon from "../components/icons/HomeIcon";
-import HeaderComponent from "../components/HeaderComponent";
 
 const ThemeChanger = () => {
   const [mounted, setMounted] = useState(false);
