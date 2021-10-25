@@ -35,19 +35,19 @@ const Home = ({ mealList }) => {
       >
         <SwiperSlide>
           <div className={styles.menuWrapper}>
-            <h3>오늘의 아침</h3>
+            <h2>오늘의 아침</h2>
             <ul>{MenuList(0)}</ul>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className={styles.menuWrapper}>
-            <h3>오늘의 점심</h3>
+            <h2>오늘의 점심</h2>
             <ul>{MenuList(1)}</ul>
           </div>
         </SwiperSlide>
         <SwiperSlide>
           <div className={styles.menuWrapper}>
-            <h3>오늘의 저녁</h3>
+            <h2>오늘의 저녁</h2>
             <ul>{MenuList(2)}</ul>
           </div>
         </SwiperSlide>
