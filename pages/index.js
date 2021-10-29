@@ -70,6 +70,11 @@ export const getServerSideProps = async () => {
     `https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=015f0705bbe0482589da35f787d46817&Type=json&pIndex=1&pSize=3&ATPT_OFCDC_SC_CODE=Q10&SD_SCHUL_CODE=8490078&MLSV_YMD=${year}${month}${date}`,
   );
   const data = await res.json();
+  if (!data) {
+    return {
+      notFound: true,
+    };
+  }
   const mealData = await data.mealServiceDietInfo[1].row;
   const parseDataStringIntoList = (dataString) => {
     return dataString.replace(/\./gi, "").replace(/[0-9]/g, "").split("<br/>"); //removing tags
