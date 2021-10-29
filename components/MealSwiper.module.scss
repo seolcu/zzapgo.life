@@ -1,5 +1,5 @@
 .menuSwiper {
-  margin: 0 20px 20px 20px;
+  margin: 0 20px 0 20px;
   padding: 20px;
   border-radius: 20px;
   background: var(--fgColor);
@@ -8,11 +8,11 @@
     margin: 0px;
   }
   ul {
-    margin: 20px 0 0 0;
+    margin: 10px 0 0 0;
     padding-left: 20px;
     li {
       font-size: 18px;
-      margin: 3px;
+      margin: 3px 3px 0 3px;
     }
   }
 }
