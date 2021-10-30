@@ -51,7 +51,7 @@ const MealSwiper = ({ API, fetcher }: MealSwiperProps) => {
 
   if (!data) {
     return (
-      <CardLayout className={styles.normalWrapper}>
+      <CardLayout>
         <h2>
           {hours <= 8
             ? "아침"
