@@ -3,11 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import useSWR from "swr";
 
-interface MealCardProps {
-  data: any;
-}
-
-const MealCard = ({ data }: MealCardProps) => {
+const MealCard = ({ data }: any) => {
   const mealType = data.MMEAL_SC_CODE; // 조식: 1, 중식: 2, 석식: 3
   const parseDataStringIntoList = (dataString: string) => {
     return dataString.replace(/\./gi, "").replace(/[0-9]/g, "").split("<br/>"); // 태그 제거
@@ -34,17 +30,13 @@ const MealCard = ({ data }: MealCardProps) => {
   );
 };
 
-const MealSwiper = () => {
-  const year = new Date().getFullYear();
-  const month = ("0" + (new Date().getMonth() + 1)).slice(-2);
-  const date = ("0" + new Date().getDate()).slice(-2);
-  const hours = new Date().getHours();
+interface MealSwiperProps {
+  API: string;
+}
 
-  const fetcher = (url: string) => fetch(url).then((res) => res.json());
-  const { data, error } = useSWR(
-    `https://open.neis.go.kr/hub/mealServiceDietInfo?KEY=015f0705bbe0482589da35f787d46817&Type=json&pIndex=1&pSize=3&ATPT_OFCDC_SC_CODE=Q10&SD_SCHUL_CODE=8490078&MLSV_YMD=${year}${month}${date}`,
-    fetcher,
-  );
+const MealSwiper = ({ API }: MealSwiperProps) => {
+  const hours = new Date().getHours();
+  const { data, error } = useSWR(API);
 
   if (error) {
     return (
