@@ -52,7 +52,16 @@ const MealSwiper = ({ API, fetcher }: MealSwiperProps) => {
   if (!data) {
     return (
       <CardLayout className={styles.normalWrapper}>
-        <h2>{hours <= 8 ? "아침" : hours <= 14 ? "점심" : "저녁"} 급식</h2>
+        <h2>
+          {hours <= 8
+            ? "아침"
+            : hours <= 14
+            ? "점심"
+            : hours <= 23
+            ? "저녁"
+            : "아침"}{" "}
+          급식
+        </h2>
         <ul>
           <li />
           <li />
@@ -75,7 +84,17 @@ const MealSwiper = ({ API, fetcher }: MealSwiperProps) => {
         centeredSlides={true}
         spaceBetween={-30}
         direction={"horizontal"}
-        initialSlide={hours <= 8 ? 0 : hours <= 14 ? 1 : 2}
+        initialSlide={
+          mealDataList.length != 3
+            ? 0
+            : hours <= 8
+            ? 0
+            : hours <= 14
+            ? 1
+            : hours <= 23
+            ? 2
+            : 0
+        }
       >
         {mealDataList.map((mealData: Object, index: number) => {
           return (
