@@ -1,7 +1,8 @@
-import styles from "./MealSwiper.module.scss";
+import styles from "../styles/components/MealSwiper.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import useSWR from "swr";
 import "swiper/css";
+import CardLayout from "./CardLayout";
 
 const MealCard = ({ data }: any) => {
   const mealType = data.MMEAL_SC_CODE; // 조식: 1, 중식: 2, 석식: 3
@@ -40,16 +41,16 @@ const MealSwiper = ({ API }: MealSwiperProps) => {
 
   if (error) {
     return (
-      <div className={styles.normalWrapper}>
+      <CardLayout className={styles.normalWrapper}>
         <h2>오류 발생</h2>
         <div>급식을 가져오는 중 오류가 발생했습니다.</div>
-      </div>
+      </CardLayout>
     );
   }
 
   if (!data) {
     return (
-      <div className={styles.normalWrapper}>
+      <CardLayout className={styles.normalWrapper}>
         <h2>{hours <= 8 ? "아침" : hours <= 14 ? "점심" : "저녁"} 급식</h2>
         <ul>
           <li />
@@ -60,7 +61,7 @@ const MealSwiper = ({ API }: MealSwiperProps) => {
           <li />
           <li />
         </ul>
-      </div>
+      </CardLayout>
     );
   }
 

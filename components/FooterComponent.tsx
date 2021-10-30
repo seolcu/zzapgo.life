@@ -1,7 +1,7 @@
 import Link from "next/link";
 import HomeIcon from "./icons/HomeIcon";
 import CalendarIcon from "./icons/CalendarIcon";
-import styles from "./FooterComponent.module.scss";
+import styles from "../styles/components/FooterComponent.module.scss";
 
 interface Props {
   currentPage: number;
