@@ -108,10 +108,12 @@ const MealSwiper = ({ API, fetcher }: MealSwiperProps) => {
   } catch (e) {
     // 급식 없을때
     return (
-      <div className={styles.normalWrapper}>
-        <h2>급식 없음</h2>
-        <div>급식이 없습니다.</div>
-      </div>
+      <SwiperSlide>
+        <CardLayout>
+          <h2>급식 없음</h2>
+          <div>급식이 없습니다.</div>
+        </CardLayout>
+      </SwiperSlide>
     );
   }
 };
