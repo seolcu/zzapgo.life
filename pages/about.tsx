@@ -11,7 +11,7 @@ const About = () => {
         <meta name="description" content="더보기" />
       </Head>
       <HeaderComponent title="더보기" />
-      <FooterComponent currentPage={3} />
+      <FooterComponent currentPage={4} />
     </>
   );
 };
