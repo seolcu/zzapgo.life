@@ -33,11 +33,12 @@ const MealCard = ({ data }: any) => {
 
 interface MealSwiperProps {
   API: string;
+  fetcher: any;
 }
 
-const MealSwiper = ({ API }: MealSwiperProps) => {
+const MealSwiper = ({ API, fetcher }: MealSwiperProps) => {
   const hours = new Date().getHours();
-  const { data, error } = useSWR(API);
+  const { data, error } = useSWR(API, fetcher);
 
   if (error) {
     return (

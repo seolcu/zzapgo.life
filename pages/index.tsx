@@ -15,7 +15,7 @@ const Home = ({ fallback }: any) => {
       </Head>
       <HeaderComponent title="홈" />
       <SWRConfig value={{ fallback }}>
-        <MealSwiper API={API} />
+        <MealSwiper API={API} fetcher={null} />
       </SWRConfig>
       <DormManager />
       <ThemeChanger />
