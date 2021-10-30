@@ -34,8 +34,8 @@ const FooterComponent = ({ currentPage }: Props) => {
           <div
             style={
               currentPage == pageIndex
-                ? { color: "var(--footerIconEnabled)" }
-                : { color: "var(--footerIconDisabled)" }
+                ? { color: "var(--primary)" }
+                : { color: "var(--secondary)" }
             }
           >
             {text}

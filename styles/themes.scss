@@ -3,8 +3,8 @@
   --fgColor: #fff;
   --outerTextColor: #000;
   --innerTextColor: #000;
-  --footerIconDisabled: #000;
-  --footerIconEnabled: #6b76ff;
+  --primary: #6b76ff;
+  --secondary: #ccc;
 }
 
 [data-theme="dark"] {
@@ -12,6 +12,6 @@
   --fgColor: #2d2d2d;
   --outerTextColor: #fff;
   --innerTextColor: #fff;
-  --footerIconDisabled: #fff;
-  --footerIconEnabled: #6b76ff;
+  --primary: #6b76ff;
+  --secondary: #aaa;
 }
