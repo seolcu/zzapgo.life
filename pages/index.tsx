@@ -19,7 +19,7 @@ const Home = ({ fallback }: any) => {
       </SWRConfig>
       <DormManager />
       <ThemeChanger />
-      <FooterComponent currentPage="0" />
+      <FooterComponent currentPage={0} />
     </>
   );
 };
