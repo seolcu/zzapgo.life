@@ -2,8 +2,6 @@ import {
   Alert,
   AlertIcon,
   Badge,
-  Container,
-  Divider,
   Heading,
   HStack,
   ListItem,
@@ -11,6 +9,8 @@ import {
   Box,
   UnorderedList,
   useColorModeValue,
+  Spinner,
+  Center,
 } from "@chakra-ui/react";
 import axios from "axios";
 import useSWR from "swr";
@@ -31,76 +31,90 @@ function MealCard({ date }: MealCardProps) {
 
   if (error) {
     return (
-      <Alert status="error" mt="1">
+      <Alert status="error" my="2">
         <AlertIcon />
         급식을 불러오는 중 에러가 발생했습니다.
       </Alert>
     );
   }
 
-  let mealArray: Array<Array<string>> = [];
-  if (data) {
-    data.mealServiceDietInfo[1].row.forEach((singleMealData: any) => {
-      const singleMealString: string = singleMealData.DDISH_NM;
-      const singleMealArray = singleMealString.split("<br/>");
-      mealArray.push(singleMealArray);
-    });
+  if (!data) {
+    return (
+      <Center>
+        <Spinner color="yellow" size="xl" m="2" />
+      </Center>
+    );
   }
-  return (
-    <Box
-      m="2"
-      p="2"
-      borderRadius="10"
-      bg={useColorModeValue("gray.50", "gray.700")}
-    >
-      <HStack m="2">
-        <Heading size="md">아침 급식</Heading>
-        {new Date().getHours() < 8 ? (
-          <Badge colorScheme="yellow">지금</Badge>
-        ) : null}
-      </HStack>
-      {data ? (
-        singleMealList(mealArray[0])
-      ) : (
-        <SkeletonText noOfLines={7} spacing="5" />
-      )}
 
-      <Divider />
-
-      <HStack m="2">
-        <Heading size="md">점심 급식</Heading>
-        {new Date().getHours() >= 8 && new Date().getHours() < 14 ? (
-          <Badge colorScheme="yellow">지금</Badge>
-        ) : null}
-      </HStack>
-      {data ? (
-        singleMealList(mealArray[1])
-      ) : (
-        <SkeletonText noOfLines={7} spacing="5" />
-      )}
-
-      <Divider />
-
-      <HStack m="2">
-        <Heading size="md">저녁 급식</Heading>
-        {new Date().getHours() >= 14 ? (
-          <Badge colorScheme="yellow">지금</Badge>
-        ) : null}
-      </HStack>
-      {data ? (
-        singleMealList(mealArray[2])
-      ) : (
-        <SkeletonText noOfLines={7} spacing="5" />
-      )}
-    </Box>
-  );
+  try {
+    const mealDataArray = data.mealServiceDietInfo[1].row;
+    return (
+      <Box
+        m="2"
+        p="2"
+        rounded="md"
+        bg={useColorModeValue("gray.50", "gray.700")}
+      >
+        {mealDataArray.map((singleMealData: any, index: number) => {
+          const mealType = singleMealData.MMEAL_SC_CODE;
+          const hours = new Date().getHours();
+          const menuString: string = singleMealData.DDISH_NM;
+          const menuArray = menuString.split("<br/>");
+          const isSameDate = date.toDateString() === new Date().toDateString();
+          const isNowAvailable =
+            (mealType == 1 && hours < 8) ||
+            (mealType == 2 && hours >= 8 && hours < 14) ||
+            (mealType == 3 && hours >= 14);
+          return (
+            <Box>
+              <HStack m="2" key={index}>
+                {/* 조식: 1, 중식: 2, 석식: 3 */}
+                <Heading size="md">
+                  {mealType == 1
+                    ? "아침 급식"
+                    : mealType == 2
+                    ? "점심 급식"
+                    : mealType == 3
+                    ? "저녁 급식"
+                    : "에러"}
+                </Heading>
+                <Badge
+                  colorScheme="yellow"
+                  display={isSameDate && isNowAvailable ? "inline" : "none"}
+                >
+                  지금
+                </Badge>
+              </HStack>
+              <UnorderedList>
+                {menuArray.map((singleMenu: string, index: number) => {
+                  return (
+                    <ListItem ms="6" key={index}>
+                      {singleMenu}
+                    </ListItem>
+                  );
+                })}
+              </UnorderedList>
+            </Box>
+          );
+        })}
+      </Box>
+    );
+  } catch (e) {
+    // 급식 없을때
+    return (
+      <Alert status="warning" my="2">
+        <AlertIcon />
+        급식이 없습니다.
+      </Alert>
+    );
+  }
 }
 
 function singleMealList(array: Array<string>) {
   return (
     <UnorderedList m="2" textAlign="start">
       {array.map((arrayItem, index) => (
-        <ListItem key={index} ms="4">
+        <ListItem key={index} ms="6">
           {arrayItem}
         </ListItem>
       ))}

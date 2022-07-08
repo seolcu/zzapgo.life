@@ -1,6 +1,15 @@
 import { Button } from "@chakra-ui/button";
 import { useColorMode, useColorModeValue } from "@chakra-ui/color-mode";
-import { Container, HStack, Heading, Text, Box } from "@chakra-ui/layout";
+import {
+  Container,
+  HStack,
+  Heading,
+  Text,
+  Box,
+  LinkBox,
+  LinkOverlay,
+  Center,
+} from "@chakra-ui/layout";
 import { Switch } from "@chakra-ui/switch";
 import { useState } from "react";
 import "./App.css";
@@ -16,7 +25,7 @@ function App() {
 
   return (
     <div>
-      <Tabs align="center" variant="line" colorScheme="yellow">
+      <Tabs align="start" variant="line" colorScheme="yellow" isFitted>
         <TabPanels>
           <TabPanel p="0">
             {/* ------------------------------메인 페이지-------------------------- */}
@@ -24,30 +33,35 @@ function App() {
               <Heading m="2">홈</Heading>
               <Box
                 bg={useColorModeValue("gray.50", "gray.700")}
-                borderRadius="10"
+                rounded="md"
                 p="2"
                 m="2"
               >
-                <Calendar
-                  onChange={setSelectedDate}
-                  value={selectedDate}
-                  calendarType="US"
-                  locale="ko-KR"
-                  formatDay={(locale: string, date: Date) =>
-                    date.getDate().toString()
-                  }
-                  next2Label={null}
-                  prev2Label={null}
-                  minDetail="month"
-                />
-                <Button
-                  m="2"
-                  colorScheme="yellow"
-                  onClick={() => setSelectedDate(new Date())}
-                  size="sm"
-                >
-                  오늘
-                </Button>
+                <Center>
+                  <Calendar
+                    onChange={setSelectedDate}
+                    value={selectedDate}
+                    calendarType="US"
+                    locale="ko-KR"
+                    formatDay={(locale: string, date: Date) =>
+                      date.getDate().toString()
+                    }
+                    next2Label={null}
+                    prev2Label={null}
+                    minDetail="month"
+                  />
+                </Center>
+
+                <Center>
+                  <Button
+                    m="2"
+                    colorScheme="yellow"
+                    onClick={() => setSelectedDate(new Date())}
+                    size="sm"
+                  >
+                    오늘
+                  </Button>
+                </Center>
               </Box>
 
               <MealCard date={selectedDate} />
@@ -55,8 +69,28 @@ function App() {
           </TabPanel>
 
           <TabPanel p="0">
+            {/* --------------------------------------북마크 페이지-------------------------------------------- */}
             <Container>
               <Heading m="2">북마크</Heading>
+              <LinkBox
+                rounded="md"
+                m="2"
+                p="2"
+                bgColor={useColorModeValue("gray.50", "gray.700")}
+              >
+                <Heading size="md" m="2">
+                  <LinkOverlay
+                    href="https://gwangcheol.hs.jne.kr/user/indexMain.action?siteId=gwangcheol_hs"
+                    isExternal
+                  >
+                    광양제철고등학교 홈페이지
+                  </LinkOverlay>
+                </Heading>
+                <Text>
+                  Catch up on what’s been cookin’ at Smashing and explore some
+                  of the most popular community resources.
+                </Text>
+              </LinkBox>
             </Container>
           </TabPanel>
 
@@ -83,13 +117,13 @@ function App() {
           bg={useColorModeValue("gray.50", "gray.700")}
         >
           <Tab>
-            <CalendarIcon boxSize="7" m="2" />
+            <CalendarIcon boxSize="6" m="2" />
           </Tab>
           <Tab>
-            <LinkIcon boxSize="7" m="2" />
+            <LinkIcon boxSize="6" m="2" />
           </Tab>
           <Tab>
-            <SettingsIcon boxSize="7" m="2" />
+            <SettingsIcon boxSize="6" m="2" />
           </Tab>
         </TabList>
       </Tabs>
