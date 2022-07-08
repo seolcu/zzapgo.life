@@ -1,9 +1,11 @@
 import {
   Alert,
   AlertIcon,
+  Badge,
   Container,
   Divider,
   Heading,
+  HStack,
   ListItem,
   SkeletonText,
   Text,
@@ -51,9 +53,12 @@ function MealCard({ date }: MealCardProps) {
       borderRadius="10"
       bg={useColorModeValue("gray.50", "gray.700")}
     >
-      <Heading size="md" m="2">
-        아침 급식
-      </Heading>
+      <HStack m="2">
+        <Heading size="md">아침 급식</Heading>
+        {new Date().getHours() < 8 ? (
+          <Badge colorScheme="yellow">지금</Badge>
+        ) : null}
+      </HStack>
       {data ? (
         singleMealList(mealArray[0])
       ) : (
@@ -62,9 +67,12 @@ function MealCard({ date }: MealCardProps) {
 
       <Divider />
 
-      <Heading size="md" m="2">
-        점심 급식
-      </Heading>
+      <HStack m="2">
+        <Heading size="md">점심 급식</Heading>
+        {new Date().getHours() >= 8 && new Date().getHours() < 14 ? (
+          <Badge colorScheme="yellow">지금</Badge>
+        ) : null}
+      </HStack>
       {data ? (
         singleMealList(mealArray[1])
       ) : (
@@ -73,9 +81,12 @@ function MealCard({ date }: MealCardProps) {
 
       <Divider />
 
-      <Heading size="md" m="2">
-        저녁 급식
-      </Heading>
+      <HStack m="2">
+        <Heading size="md">저녁 급식</Heading>
+        {new Date().getHours() >= 14 ? (
+          <Badge colorScheme="yellow">지금</Badge>
+        ) : null}
+      </HStack>
       {data ? (
         singleMealList(mealArray[2])
       ) : (
