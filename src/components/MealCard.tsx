@@ -8,7 +8,7 @@ import {
   HStack,
   ListItem,
   SkeletonText,
-  Text,
+  Box,
   UnorderedList,
   useColorModeValue,
 } from "@chakra-ui/react";
@@ -47,7 +47,7 @@ function MealCard({ date }: MealCardProps) {
     });
   }
   return (
-    <Container
+    <Box
       m="2"
       p="2"
       borderRadius="10"
@@ -92,13 +92,13 @@ function MealCard({ date }: MealCardProps) {
       ) : (
         <SkeletonText noOfLines={7} spacing="5" />
       )}
-    </Container>
+    </Box>
   );
 }
 
 function singleMealList(array: Array<string>) {
   return (
-    <UnorderedList m="2">
+    <UnorderedList m="2" textAlign="start">
       {array.map((arrayItem, index) => (
         <ListItem key={index} ms="4">
           {arrayItem}
