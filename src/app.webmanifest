@@ -13,7 +13,7 @@
     {
       "src": "maskable.png",
       "sizes": "1024x1024",
-      "purpose": "maskable"
+      "purpose": "any maskable"
     },
     {
       "src": "windows11/SmallTile.scale-100.png",
