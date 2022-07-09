@@ -3,12 +3,12 @@
   "short_name": "짭고라이프",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#ECC94B",
+  "background_color": "#F6E05E",
   "dir": "ltr",
   "lang": "ko",
   "orientation": "any",
   "scope": "/",
-  "theme_color": "#ECC94B",
+  "theme_color": "#F6E05E",
   "icons": [
     {
       "src": "maskable.png",
