@@ -32,7 +32,7 @@ function MealCard({ date }: MealCardProps) {
 
   if (error) {
     return (
-      <Alert status="error" my="4">
+      <Alert status="error" my="4" rounded="md">
         <AlertIcon />
         급식을 불러오는 중 에러가 발생했습니다.
       </Alert>
@@ -51,7 +51,7 @@ function MealCard({ date }: MealCardProps) {
     const mealDataArray: Array<object> = data.mealServiceDietInfo[1].row;
     return (
       <Box
-        m="4"
+        my="4"
         p="4"
         rounded="md"
         bg={useColorModeValue("gray.50", "gray.700")}
@@ -89,7 +89,7 @@ function MealCard({ date }: MealCardProps) {
 
               <SingleMealList array={menuArray} />
 
-              {index + 1 < mealDataArray.length ? <Divider m="2" /> : null}
+              {index + 1 < mealDataArray.length ? <Divider my="2" /> : null}
             </Box>
           );
         })}
@@ -101,7 +101,7 @@ function MealCard({ date }: MealCardProps) {
     console.log(data);
     console.log(data);
     return (
-      <Alert status="warning" my="4">
+      <Alert status="warning" my="4" rounded="md">
         <AlertIcon />
         급식이 없습니다.
       </Alert>
@@ -117,7 +117,7 @@ function SingleMealList({ array }: SingleMealListProps) {
   return (
     <UnorderedList>
       {array.map((arrayItem, index) => (
-        <ListItem key={index} ms="4">
+        <ListItem key={index} ms="2">
           {arrayItem}
         </ListItem>
       ))}
